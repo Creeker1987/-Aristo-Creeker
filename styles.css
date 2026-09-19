@@ -355,6 +355,11 @@ nav a:hover {
   margin-left: 92px;
 }
 
+.memory-section {
+  /* Keep the desktop set list positioned against the original paper page. */
+  display: contents;
+}
+
 .paper-memory-photos {
   position: relative;
   z-index: 4;
@@ -1046,13 +1051,49 @@ footer {
     width: 100%;
   }
 
-  .paper-memory-photos {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 22px;
+  .hero-copy {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .memory-section {
+    display: block;
+    position: relative;
+    margin: 20px auto 42px;
     max-width: 640px;
-    padding-top: 44px;
-    height: auto;
+  }
+
+  .rush-list {
+    top: 50%;
+    left: 50%;
+    width: 78%;
+    transform: translate(-50%, -50%) rotate(-5deg) skewX(-2deg);
+  }
+
+  .paper-memory-photos {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: none;
+    justify-items: center;
+    gap: 36px 24px;
+    margin: 0;
+    padding: 34px 28px;
+  }
+
+  .paper-photo {
+    grid-column: auto;
+    grid-row: auto;
+    max-width: 100%;
+    transform: rotate(4deg);
+  }
+
+  .paper-photo:nth-child(even) {
+    transform: rotate(-5deg);
+  }
+
+  .paper-photo-seven {
+    grid-column: 1 / -1;
+    width: min(65%, 230px);
+    transform: rotate(-4deg);
   }
 }
 
@@ -1077,12 +1118,13 @@ footer {
     grid-template-columns: 1fr;
   }
 
-  .paper-memory-photos {
-    gap: 16px;
+  .hero h1 {
+    font-size: clamp(2rem, 10vw, 4rem);
+    line-height: 1;
   }
 
-  .hero h1 {
-    font-size: 4rem;
+  .hero-actions .button {
+    width: 100%;
   }
 
   .card-topline,
