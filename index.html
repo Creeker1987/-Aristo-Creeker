@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AristoCreekers | Local Music Guide</title>
-    <link rel="stylesheet" href="styles.css?v=20260919-mobile-layout" />
+    <link rel="stylesheet" href="styles.css?v=20260920-mobile-setlist" />
   </head>
   <body>
     <header class="site-header">
@@ -151,26 +151,29 @@
             <label>Regional act seen here (optional)<input id="regionalAct" name="regionalAct" placeholder="A touring or regional favorite" /></label>
             <label>Your first name<input id="name" name="name" placeholder="Mark" /></label>
           </div>
-          <label>Tell a Creeker about the venue<textarea id="note" name="note" rows="4" placeholder="Best night, parking, outdoor shows, cover charge, seating, sound, or what makes this venue worth finding..."></textarea></label>
+          <label>Tell a Creeker about the venue<textarea id="note" name="note" rows="4" placeholder="Describe the music, atmosphere, sound, seating, or what makes this venue worth finding..."></textarea></label>
+          <label>Creeker Tip (optional)<textarea id="tip" name="tip" rows="3" placeholder="Share one practical tip—best night to visit, parking, reservations, cover charge, or another local detail."></textarea></label>
           <button class="button primary submit-button" type="submit">Share suggestion</button>
+          <p class="review-note">Suggestions are reviewed before appearing in the public guide.</p>
           <p class="form-note" id="form-note" role="status" aria-live="polite"></p>
         </form>
         <section class="panel discovery-panel" id="discover" aria-labelledby="discover-title">
           <div class="section-heading"><p class="eyebrow">Discover</p><h2 id="discover-title">Where should Creekers go hear music?</h2></div>
           <div class="filters">
-            <label>Search by city, venue, artist, or genre<input id="search" type="search" placeholder="Try Nashville, jazz, or venue name" /></label>
-            <button class="button secondary" id="clear-local" type="button">Clear my added suggestions</button>
+            <label>Search by city, venue, artist, or genre<input id="search" type="search" placeholder="Try Lexington KY, jazz, or a venue name" /></label>
+            <label>Music style<select id="music-filter"><option value="">All music styles</option></select></label>
           </div>
-          <div class="stats" aria-label="Suggestion totals"><span><strong id="total-count">0</strong> suggestions</span><span><strong id="city-count">0</strong> cities</span></div>
+          <div class="stats" aria-label="Venue totals"><span><strong id="total-count">0</strong> venues</span><span><strong id="city-count">0</strong> cities</span></div>
           <div class="cards" id="cards" aria-live="polite"></div>
         </section>
         </section>
       </div>
     </main>
-    <footer><p>AristoCreekers is a private local prototype on this computer.</p></footer>
+    <footer><p>AristoCreekers is a community guide to local music worth finding.</p></footer>
     <template id="card-template">
       <article class="music-card"><div class="card-topline"><span class="tag"></span><span class="location"></span></div><p class="music-tag"></p><h3></h3><p class="venue-link"></p><div class="venue-details"></div><div class="artist-list"></div><p class="note"></p><p class="submitted"></p></article>
     </template>
-    <script src="app.js?v=20260807-1"></script>
+    <script src="config.js?v=20260920-shared-guide"></script>
+    <script src="app.js?v=20260920-shared-guide"></script>
   </body>
 </html>

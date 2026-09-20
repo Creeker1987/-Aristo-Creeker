@@ -1,0 +1,19 @@
+ARISTOCREEKERS — APPROVING PUBLIC SUBMISSIONS
+
+New suggestions are stored privately until you approve them.
+
+1. Sign in to Supabase and open the AristoCreekers project.
+2. Open Table Editor from the left side.
+3. Open the venues table.
+4. Review the venue name, city, state, website, and other details.
+5. Change approved from false to true for a venue you want displayed.
+6. Open the recommendations table.
+7. Review the description and Creeker Tip.
+8. Change approved from false to true for recommendations you want displayed.
+
+A venue must be approved before its approved recommendations can appear.
+If another person recommends an existing venue, the new recommendation is
+added to that venue's profile after you approve the recommendation.
+
+Never share a Supabase secret key, service_role key, or database password.
+The publishable key used by the website is intended to be public.
