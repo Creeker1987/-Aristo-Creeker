@@ -10,7 +10,11 @@ const totalCount = document.querySelector("#total-count");
 const cityCount = document.querySelector("#city-count");
 const formNote = document.querySelector("#form-note");
 const submitButton = form.querySelector("button[type='submit']");
+const installButton = document.querySelector("#install-app");
+const installButtonText = document.querySelector("#install-app-text");
+const installHelp = document.querySelector("#install-help");
 let venues = [];
+let deferredInstallPrompt = null;
 
 function normalize(value) {
   return String(value || "").trim().replace(/\s+/g, " ");
@@ -27,6 +31,25 @@ function safeLink(value) {
   } catch {
     return "";
   }
+}
+
+function mapLinkForVenue(venue) {
+  const query = [venue.name, venue.city, venue.state].filter(Boolean).join(", ");
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function showsLinkForVenue(venue) {
+  const query = [venue.name, venue.city, venue.state, "live music events schedule"].filter(Boolean).join(" ");
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
+function addVenueLink(parent, href, text) {
+  const link = document.createElement("a");
+  link.href = href;
+  link.target = "_blank";
+  link.rel = "noopener noreferrer";
+  link.textContent = text;
+  parent.appendChild(link);
 }
 
 function populateMusicFilter() {
@@ -128,15 +151,10 @@ function renderVenues() {
     if (musicTypes.length) musicTag.textContent = musicTypes.join(" / ");
     else musicTag.remove();
     const venueLink = card.querySelector(".venue-link");
+    addVenueLink(venueLink, mapLinkForVenue(venue), "Map & venue details");
+    addVenueLink(venueLink, showsLinkForVenue(venue), "Find current shows");
     const href = safeLink(venue.website_url);
-    if (href) {
-      const link = document.createElement("a");
-      link.href = href;
-      link.target = "_blank";
-      link.rel = "noopener noreferrer";
-      link.textContent = "Check the venue’s current schedule";
-      venueLink.appendChild(link);
-    } else venueLink.remove();
+    if (href) addVenueLink(venueLink, href, "Official venue page");
     const artistList = card.querySelector(".artist-list");
     addTextLine(artistList, "Local artist to check out", venue.local_artist);
     addTextLine(artistList, "Regional act seen here", venue.regional_act);
@@ -209,4 +227,39 @@ form.addEventListener("submit", async (event) => {
 
 search.addEventListener("input", renderVenues);
 musicFilter.addEventListener("change", renderVenues);
+
+window.addEventListener("beforeinstallprompt", (event) => {
+  event.preventDefault();
+  deferredInstallPrompt = event;
+});
+
+if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+  installButtonText.textContent = "Add AristoCreekers to Phone";
+} else {
+  installButtonText.textContent = "Install AristoCreekers";
+}
+
+installButton.addEventListener("click", async () => {
+  installHelp.hidden = false;
+  if (window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone) {
+    installHelp.textContent = "AristoCreekers is already installed on this device.";
+    return;
+  }
+  if (deferredInstallPrompt) {
+    deferredInstallPrompt.prompt();
+    await deferredInstallPrompt.userChoice;
+    deferredInstallPrompt = null;
+    return;
+  }
+  if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+    installHelp.textContent = "On iPhone or iPad: tap Safari’s Share button, choose Add to Home Screen, then tap Add.";
+  } else {
+    installHelp.textContent = "Open your browser menu and choose Install app or Add to Home screen.";
+  }
+});
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => navigator.serviceWorker.register("./service-worker.js"));
+}
+
 loadVenues();

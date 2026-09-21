@@ -90,45 +90,12 @@ a {
 }
 
 .brand-mark {
-  position: relative;
-  display: grid;
-  place-items: center;
-  width: 40px;
-  height: 40px;
+  display: block;
+  width: 48px;
+  height: 48px;
   border-radius: 50%;
-  background:
-    repeating-linear-gradient(38deg, rgba(255, 255, 255, 0.045) 0 1px, transparent 1px 6px),
-    radial-gradient(circle at 34% 26%, #2e5148, #18332e 72%);
-  color: #fff6df;
-  border: 2px dashed #ddc48a;
-  outline: 3px solid #842323;
-  font-family: Georgia, "Times New Roman", serif;
-  font-size: 0.92rem;
-  font-weight: 900;
-  text-shadow: 0 1px 0 rgba(0, 0, 0, 0.58);
-  box-shadow:
-    inset 0 2px 0 rgba(255, 255, 255, 0.24),
-    0 5px 12px rgba(20, 14, 10, 0.16);
-}
-
-.brand-mark::before {
-  content: "";
-  position: absolute;
-  inset: 6px;
-  border: 1px dotted rgba(221, 196, 138, 0.72);
-  border-radius: 50%;
-}
-
-.brand-mark::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 68% 32%, rgba(255, 255, 255, 0.08), transparent 16%),
-    repeating-linear-gradient(104deg, rgba(0, 0, 0, 0.05) 0 1px, transparent 1px 9px);
-  mix-blend-mode: soft-light;
-  pointer-events: none;
+  object-fit: contain;
+  filter: drop-shadow(0 5px 6px rgba(20, 14, 10, 0.22));
 }
 
 .brand-word {
@@ -860,6 +827,32 @@ textarea:focus {
   font-weight: 800;
 }
 
+.install-button {
+  gap: 9px;
+  background: rgba(12, 68, 56, 0.94);
+  color: white;
+  border-color: rgba(255, 255, 255, 0.42);
+}
+
+.install-button img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
+
+.hero p.install-caption,
+.hero p.install-help {
+  max-width: 620px;
+  margin-top: 10px;
+  font-size: 0.9rem;
+}
+
+.hero p.install-help {
+  border-left: 3px solid var(--gold);
+  padding: 8px 12px;
+  background: rgba(10, 34, 29, 0.72);
+}
+
 .review-note {
   margin: 12px 0 0;
   color: var(--muted);
@@ -961,6 +954,9 @@ button:disabled {
 }
 
 .venue-link {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
   margin: 4px 0 0;
   font-size: 0.9rem;
   font-weight: 800;
@@ -1111,16 +1107,16 @@ footer {
     top: 50%;
     left: 50%;
     width: 78%;
-    color: rgba(16, 87, 186, 0.24);
+    color: rgba(16, 87, 186, 0.29);
     transform: translate(-50%, -50%) rotate(-5deg) skewX(-2deg);
   }
 
   .rush-list p {
-    text-shadow: 0.6px 0 rgba(16, 87, 186, 0.12);
+    text-shadow: 0.6px 0 rgba(16, 87, 186, 0.16);
   }
 
   .rush-list p:first-child {
-    color: rgba(16, 87, 186, 0.3);
+    color: rgba(16, 87, 186, 0.35);
   }
 
   .paper-memory-photos {

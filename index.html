@@ -3,13 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#0c4438" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="apple-mobile-web-app-title" content="AristoCreekers" />
     <title>AristoCreekers | Local Music Guide</title>
-    <link rel="stylesheet" href="styles.css?v=20260920-mobile-setlist" />
+    <link rel="manifest" href="manifest.webmanifest" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="stylesheet" href="styles.css?v=20260921-creeker-app" />
   </head>
   <body>
     <header class="site-header">
       <a class="brand" href="#top" aria-label="AristoCreekers home">
-        <span class="brand-mark" aria-hidden="true">AC</span>
+        <img class="brand-mark" src="ac-vinyl-icon.png" alt="" />
         <span class="brand-word">AristoCreekers</span>
       </a>
       <nav aria-label="Primary navigation">
@@ -31,9 +38,15 @@
           <h1 id="hero-title">AristoCreekers</h1>
           <p>Find the venues locals love. Share your favorite hometown stage and the artists to look for so Creekers can discover real rooms, real shows, and the people keeping local music alive.</p>
           <div class="hero-actions">
-            <a class="button primary" href="#suggest">Recommend a venue</a>
-            <a class="button secondary" href="#discover">Browse music stops</a>
+            <a class="button primary" href="#discover">Find live music</a>
+            <a class="button secondary" href="#suggest">Recommend a venue</a>
+            <button class="button install-button" id="install-app" type="button">
+              <img src="ac-vinyl-icon.png" alt="" />
+              <span id="install-app-text">Add AristoCreekers to Phone</span>
+            </button>
           </div>
+          <p class="install-caption">Quick access from the Creeker icon on your home screen.</p>
+          <p class="install-help" id="install-help" role="status" hidden></p>
         </div>
       </section>
       <section class="intro-band" id="mission" aria-label="AristoCreekers mission">
@@ -117,7 +130,7 @@
             <label>City<input id="city" name="city" autocomplete="address-level2" required placeholder="Asheville" /></label>
             <label>State<input id="state" name="state" autocomplete="address-level1" required placeholder="NC" maxlength="24" /></label>
             <label>Venue<input id="venue" name="venue" required placeholder="The Orange Peel" /></label>
-            <label>Venue website or social (optional)<input id="link" name="link" type="url" placeholder="https://..." /></label>
+            <label>Official website or social (optional)<input id="link" name="link" type="url" placeholder="https://..." /></label>
             <fieldset class="checkbox-field">
               <legend>Venue offers</legend>
               <label><input type="checkbox" name="features" value="Bar" /> Bar</label>
@@ -174,6 +187,6 @@
       <article class="music-card"><div class="card-topline"><span class="tag"></span><span class="location"></span></div><p class="music-tag"></p><h3></h3><p class="venue-link"></p><div class="venue-details"></div><div class="artist-list"></div><p class="note"></p><p class="submitted"></p></article>
     </template>
     <script src="config.js?v=20260920-shared-guide"></script>
-    <script src="app.js?v=20260920-shared-guide"></script>
+    <script src="app.js?v=20260921-creeker-app"></script>
   </body>
 </html>
