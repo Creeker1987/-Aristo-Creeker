@@ -1104,19 +1104,19 @@ footer {
   }
 
   .rush-list {
-    top: 50%;
+    top: 45%;
     left: 50%;
     width: 78%;
-    color: rgba(16, 87, 186, 0.29);
+    color: rgba(16, 87, 186, 0.34);
     transform: translate(-50%, -50%) rotate(-5deg) skewX(-2deg);
   }
 
   .rush-list p {
-    text-shadow: 0.6px 0 rgba(16, 87, 186, 0.16);
+    text-shadow: 0.6px 0 rgba(16, 87, 186, 0.2);
   }
 
   .rush-list p:first-child {
-    color: rgba(16, 87, 186, 0.35);
+    color: rgba(16, 87, 186, 0.4);
   }
 
   .paper-memory-photos {

@@ -1,4 +1,4 @@
-const CACHE_NAME = "aristocreekers-v1";
+const CACHE_NAME = "aristocreekers-v2-mobile-setlist";
 const APP_SHELL = [
   "./",
   "./index.html",
