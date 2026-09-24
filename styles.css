@@ -68,6 +68,7 @@ a {
 }
 
 .brand {
+  --brand-mark-size: 72px;
   position: relative;
   display: inline-flex;
   align-items: center;
@@ -80,7 +81,7 @@ a {
 .brand::after {
   content: "";
   position: absolute;
-  left: 50px;
+  left: calc(var(--brand-mark-size) + 2px);
   right: -8px;
   bottom: -5px;
   height: 8px;
@@ -91,8 +92,8 @@ a {
 
 .brand-mark {
   display: block;
-  width: 48px;
-  height: 48px;
+  width: var(--brand-mark-size);
+  height: var(--brand-mark-size);
   border-radius: 50%;
   object-fit: contain;
   filter: drop-shadow(0 5px 6px rgba(20, 14, 10, 0.22));
@@ -1068,6 +1069,10 @@ footer {
   .site-header {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .brand {
+    --brand-mark-size: 58px;
   }
 
   .hero {

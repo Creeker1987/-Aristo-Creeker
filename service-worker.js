@@ -1,4 +1,4 @@
-const CACHE_NAME = "aristocreekers-v2-mobile-setlist";
+const CACHE_NAME = "aristocreekers-v3-marketing-icon";
 const APP_SHELL = [
   "./",
   "./index.html",
@@ -7,6 +7,8 @@ const APP_SHELL = [
   "./config.js",
   "./manifest.webmanifest",
   "./ac-vinyl-icon.png",
+  "./aristo-live-music-creeker-logo.png",
+  "./apple-touch-icon.png",
   "./icon-192.png",
   "./icon-512.png"
 ];
