@@ -1177,6 +1177,10 @@ footer {
     line-height: 1;
   }
 
+  .hero-actions {
+    margin-top: 88px;
+  }
+
   .hero-actions .button {
     width: 100%;
   }
