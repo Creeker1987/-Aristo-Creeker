@@ -127,7 +127,8 @@ nav a:hover {
   position: relative;
   min-height: 690px;
   display: grid;
-  align-items: center;
+  grid-template-rows: auto minmax(90px, 1fr) auto;
+  align-items: start;
   padding: clamp(46px, 8vw, 110px) clamp(18px, 5vw, 72px);
   overflow: hidden;
   background:
@@ -160,6 +161,7 @@ nav a:hover {
 .hero-copy {
   position: relative;
   z-index: 2;
+  grid-row: 1;
   max-width: 860px;
   padding-top: 32px;
 }
@@ -197,7 +199,15 @@ nav a:hover {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-top: 32px;
+  margin: 0;
+}
+
+.hero-action-band {
+  position: relative;
+  z-index: 2;
+  grid-row: 3;
+  align-self: end;
+  width: 100%;
 }
 
 .button {
@@ -1076,7 +1086,7 @@ footer {
   }
 
   .hero {
-    min-height: 600px;
+    min-height: 720px;
     background-position: center;
   }
 
@@ -1175,10 +1185,6 @@ footer {
   .hero h1 {
     font-size: clamp(2rem, 10vw, 4rem);
     line-height: 1;
-  }
-
-  .hero-actions {
-    margin-top: 88px;
   }
 
   .hero-actions .button {
